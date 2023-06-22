@@ -25,6 +25,11 @@ fn get_user_input() -> String {
     return String::from("32.0");
 }
 
+fn get_faulty_user_input() -> String {
+    // return String::from("32..0");
+    return String::from("32..0");
+}
+
 /// .
 ///
 /// # Errors
