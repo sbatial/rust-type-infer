@@ -1,4 +1,4 @@
-use std::{num::ParseFloatError, str::FromStr};
+use std::str::FromStr;
 
 fn main() {
     println!("{}", wrap_parsing().unwrap());
