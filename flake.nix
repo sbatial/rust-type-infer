@@ -20,7 +20,7 @@
           };
           rustToolchain = pkgs.pkgsBuildHost.rust-bin.fromRustupToolchainFile ./rust-toolchain.toml;
           nativeBuildInputs = with pkgs; [ rustToolchain gcc ];
-          buildInputs = with pkgs; [ trunk nodePackages.tailwindcss ];
+          buildInputs = with pkgs; [ bacon ];
         in
         with pkgs;
         {
