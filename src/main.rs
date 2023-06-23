@@ -1,4 +1,6 @@
-use std::{str::FromStr, num::ParseFloatError};
+use std::{num::ParseFloatError, str::FromStr};
+
+use rand::{thread_rng, Rng};
 
 /// .
 ///
@@ -6,7 +8,21 @@ use std::{str::FromStr, num::ParseFloatError};
 ///
 /// Panics if .
 fn main() {
-    println!("{}", wrap_parsing().unwrap());
+    let num = wrap_parsing();
+
+    if num.is_ok() {
+        println!("{}", num.unwrap());
+    } else {
+        println!("Input could not be parsed properly!");
+    }
+
+    let num = wrap_parsing();
+
+    if num.is_ok() {
+        println!("{}", num.unwrap());
+    } else {
+        println!("Input could not be parsed properly!");
+    }
 }
 
 /// .
@@ -15,7 +31,15 @@ fn main() {
 ///
 /// This function will return an error if .
 fn wrap_parsing() -> Result<f32, ParseFloatError> {
-    let u_in = get_user_input();
+    let mut rng = thread_rng();
+    let u_in;
+
+    if rng.gen::<usize>() % 100 > 50 {
+        u_in = get_user_input();
+    } else {
+        u_in = get_faulty_user_input();
+    }
+
     let u_num = parse_user_input::<f32>(u_in);
     return u_num;
 }
